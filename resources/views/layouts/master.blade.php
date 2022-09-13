@@ -44,7 +44,7 @@
                 <img src="dashboard/dist/img/noimage.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                <a href="#" class="d-block"></a>
+                <a href="#" class="d-block">{{auth()->user()->name}}</a>
                 </div>
             </div>
         
@@ -84,8 +84,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-home"></i>
+                        <a href="{{ route('logout') }}" class="nav-link">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
                             <p>
                                 Logout
                             </p>
