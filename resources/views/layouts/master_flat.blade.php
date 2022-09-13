@@ -52,7 +52,7 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-home"></i>
                             <p>
                                 Home
@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('flat') }}" class="nav-link">
+                        <a href="{{ route('flat') }}" class="nav-link active">
                             <i class="nav-icon fas fa-building"></i>
                             <p>
                                 Flat Info
