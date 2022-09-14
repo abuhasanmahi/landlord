@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FlatController;
 use App\Http\Controllers\TenantController;
+use App\Http\Controllers\ReceiptController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,6 @@ Route::post('/tenant', [TenantController::class, 'store']);
 Route::get('/tenant/{id}/edit', [TenantController::class, 'edit'])->name('tenant.edit');
 Route::post('/tenant/{id}/update', [TenantController::class, 'update'])->name('tenant.update');
 Route::get('/tenant/{id}/destroy', [TenantController::class, 'destroy']);
+
+Route::get('/receipt', [ReceiptController::class, 'index'])->name('receipt');
+Route::post('/receipt/generate', [ReceiptController::class, 'generate'])->name('receipt.generate');

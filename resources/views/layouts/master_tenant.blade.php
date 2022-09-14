@@ -62,14 +62,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('tenant') }}" class="nav-link active">
-                            <i class="nav-icon fas fa-user"></i>
-                            <p>
-                                Tenant Info
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="{{ route('flat') }}" class="nav-link">
                             <i class="nav-icon fas fa-building"></i>
                             <p>
@@ -78,7 +70,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="generate/index.php" class="nav-link">
+                        <a href="{{ route('tenant') }}" class="nav-link active">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Tenant Info
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('receipt') }}" class="nav-link">
                             <i class="nav-icon fas fa-receipt"></i>
                             <p>
                                 Generate Receipt

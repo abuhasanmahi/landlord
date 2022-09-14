@@ -50,4 +50,8 @@ class User extends Authenticatable
         return $this->hasMany(Tenant::class);
     }
 
+    public function receipt(){
+        return $this->hasMany(Receipt::class);
+    }
+
 }
