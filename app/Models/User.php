@@ -46,4 +46,8 @@ class User extends Authenticatable
         return $this->hasMany(Flat::class);
     }
 
+    public function tenant(){
+        return $this->hasMany(Tenant::class);
+    }
+
 }

@@ -60,7 +60,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="tenant/index.php" class="nav-link">
+                        <a href="{{ route('tenant') }}" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
                             <p>
                                 Tenant Info

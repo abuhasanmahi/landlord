@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FlatController;
+use App\Http\Controllers\TenantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::get('/logout', [LogoutController::class, 'index'])->name('logout');
 
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -37,4 +39,11 @@ Route::get('/flat/create', [FlatController::class, 'create'])->name('flat.create
 Route::post('/flat', [FlatController::class, 'store']);
 Route::get('/flat/{id}/edit', [FlatController::class, 'edit'])->name('flat.edit');
 Route::post('/flat/{id}/update', [FlatController::class, 'update'])->name('flat.update');
-Route::get('flat/{id}/destroy', [FlatController::class, 'destroy']);
+Route::get('/flat/{id}/destroy', [FlatController::class, 'destroy']);
+
+Route::get('/tenant', [TenantController::class, 'index'])->name('tenant');
+Route::get('/tenant/create', [TenantController::class, 'create'])->name('tenant.create');
+Route::post('/tenant', [TenantController::class, 'store']);
+Route::get('/tenant/{id}/edit', [TenantController::class, 'edit'])->name('tenant.edit');
+Route::post('/tenant/{id}/update', [TenantController::class, 'update'])->name('tenant.update');
+Route::get('/tenant/{id}/destroy', [TenantController::class, 'destroy']);
