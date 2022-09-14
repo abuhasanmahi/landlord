@@ -36,6 +36,10 @@
                         <br>
                         *Please note that, once generated, the rent and respective bills cannot be changed for the selected month of the selected year.
                         <br><br>
+                        <label>Receipt Size</label><br>
+                        <input type="radio" name="receipt_size" value="0" checked>&nbsp;Mini Version
+                        <input type="radio" name="receipt_size" value="1">&nbsp;Broad Version
+                        <br><br>
                         <input type="submit" name="submit" value="Generate" class="btn btn-primary">
                     </div>
                 </div>

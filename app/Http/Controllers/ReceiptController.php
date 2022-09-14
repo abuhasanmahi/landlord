@@ -28,6 +28,7 @@ class ReceiptController extends Controller
 
         $month = $request->input('month');
         $year = $request->input('year');
+        $receipt_size = $request->input('receipt_size');
 
         $tenant_count = DB::table('tenants')
         ->select('tenants.id','tenants.name','tenants.flat_id','flats.flat_name','flats.rent','flats.electricity_bill','flats.water_bill','flats.gas_bill','flats.trash_van')
@@ -72,7 +73,11 @@ class ReceiptController extends Controller
             ->where('year', $year)
             ->get();
 
-            return view('receipt/generate')->with('receipt', $receipt);
+            if($receipt_size == 0){
+                return view('receipt/generate')->with('receipt', $receipt);
+            }else{
+                return view('receipt/generate2')->with('receipt', $receipt);
+            }
         }else{
             return redirect('/receipt')->with('error', 'No Data Found');
         }
