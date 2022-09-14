@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('flats', function (Blueprint $table) {
             $table->id();
             $table->string('flat_name');
-            $table->integer('rent');
-            $table->integer('electricity_bill')->nullable;
-            $table->integer('water_bill')->nullable;
-            $table->integer('gas_bill')->nullable;
-            $table->integer('trash_van')->nullable;
+            $table->integer('rent')->unsigned();
+            $table->integer('electricity_bill')->nullable()->unsigned();
+            $table->integer('water_bill')->nullable()->unsigned();
+            $table->integer('gas_bill')->nullable()->unsigned();
+            $table->integer('trash_van')->nullable()->unsigned();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

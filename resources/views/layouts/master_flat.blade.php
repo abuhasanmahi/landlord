@@ -9,6 +9,8 @@
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('/dashboard/plugins/fontawesome-free/css/all.min.css')}}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('/dashboard/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('/dashboard/dist/css/adminlte.min.css')}}">
 </head>
@@ -32,7 +34,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
-            <img src="dashboard/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="/landlord/public/dashboard/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">Landlord</span>
             </a>
         
@@ -41,7 +43,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                <img src="dashboard/dist/img/noimage.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="/landlord/public/dashboard/dist/img/noimage.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                 <a href="#" class="d-block">{{auth()->user()->name}}</a>
@@ -159,7 +161,18 @@
 <script src="{{asset('/dashboard/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('/dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- DataTables -->
+<script src="{{asset('/dashboard/plugins/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('/dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('/dashboard/dist/js/adminlte.min.js')}}"></script>
 </body>
 </html>
+
+<script>
+  $(document).ready(function() {
+      $('#example1').DataTable( {
+          "order": [[ 0, "desc" ]]
+      });
+  });
+</script>

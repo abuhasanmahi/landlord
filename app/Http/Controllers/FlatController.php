@@ -14,7 +14,7 @@ class FlatController extends Controller
      */
     public function index()
     {
-        $flat = Flat::all();
+        $flat = Flat::where('user_id', auth()->user()->id)->get();
         return view('flat/index')->with('flat', $flat);
     }
 
@@ -25,7 +25,7 @@ class FlatController extends Controller
      */
     public function create()
     {
-        //
+        return view('flat/create');
     }
 
     /**
@@ -36,7 +36,23 @@ class FlatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'flat_name' => 'required',
+            'rent' => 'required',
+        ]);
+       
+        //Create Flat
+        $flat = New Flat();
+        $flat->flat_name = $request->input('flat_name');
+        $flat->rent = $request->input('rent');
+        $flat->electricity_bill = $request->input('electricity_bill');
+        $flat->water_bill = $request->input('water_bill');
+        $flat->gas_bill = $request->input('gas_bill');
+        $flat->trash_van = $request->input('trash_van');
+        $flat->user_id = auth()->user()->id;
+        $flat->save();
+  
+        return redirect('/flat')->with('success', 'Data Inserted Successfully');
     }
 
     /**
@@ -58,7 +74,12 @@ class FlatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $flat = Flat::find($id);
+        if(!$flat->ownedBy(auth()->user())){
+            return redirect('/flat')->with('error', 'You are not authorized to Edit');            
+        }else{
+            return view('flat/edit')->with('flat', $flat);
+        }
     }
 
     /**
@@ -70,7 +91,22 @@ class FlatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'flat_name' => 'required',
+            'rent' => 'required',
+        ]);
+       
+        //Update Flat
+        $flat = Flat::find($id);
+        $flat->flat_name = $request->input('flat_name');
+        $flat->rent = $request->input('rent');
+        $flat->electricity_bill = $request->input('electricity_bill');
+        $flat->water_bill = $request->input('water_bill');
+        $flat->gas_bill = $request->input('gas_bill');
+        $flat->trash_van = $request->input('trash_van');
+        $flat->save();
+  
+        return redirect('/flat')->with('success', 'Data Updated Successfully');
     }
 
     /**
@@ -81,6 +117,12 @@ class FlatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $flat = Flat::find($id);
+        if(!$flat->ownedBy(auth()->user())){
+            return redirect('/flat')->with('error', 'You are not authorized to Delete');            
+        }else{
+            $flat->delete();
+            return redirect('/flat')->with('success', 'Data Deleted Successfully');
+        }
     }
 }

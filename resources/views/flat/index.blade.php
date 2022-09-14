@@ -2,11 +2,12 @@
  
 @section('content')
     <div class="page-header clearfix" style="text-align:left;">
-        <h3>Flat List</h3>
+        <h3 style="float:left;">Flat List</h3>
         <span style="float:right;">
-            <a href="create.php" class="btn btn-primary">Insert Flat Info</a>
+            <a href="{{ route('flat.create') }}" class="btn btn-primary">Insert Flat Info</a>
         </span>
     </div>
+    <br>
    @if(count($flat) > 0)
     <table id="example1" class="table table-bordered table-striped">
         <thead>
