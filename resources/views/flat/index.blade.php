@@ -31,8 +31,8 @@
                 <td class="text-center">{{$flats->gas_bill}}</td>
                 <td class="text-center">{{$flats->trash_van}}</td>
                 <td class="text-center">
-                    <a href="/landlord/flat/{{$flats->id}}/edit" title='Edit Record'><i class='fas fa-pencil-alt'></i></a>
-                    <a href="/landlord/flat/{{$flats->id}}/destroy" title='Delete Record' onclick="return confirm('Are you sure you want to Remove?');"><i class='fas fa-trash-alt'></i></a>
+                    <a href="flat/{{$flats->id}}/edit" title='Edit Record'><i class='fas fa-pencil-alt'></i></a>
+                    <a href="flat/{{$flats->id}}/destroy" title='Delete Record' onclick="return confirm('Are you sure you want to Remove?');"><i class='fas fa-trash-alt'></i></a>
                 </td>
            </tr>
        @endforeach

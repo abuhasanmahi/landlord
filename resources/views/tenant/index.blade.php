@@ -23,8 +23,8 @@
                 <td class="text-center">{{$tenants->name}}</td>
                 <td class="text-center">{{$tenants->flat_name}}</td>
                 <td class="text-center">
-                    <a href="/landlord/tenant/{{$tenants->id}}/edit" title='Edit Record'><i class='fas fa-pencil-alt'></i></a>
-                    <a href="/landlord/tenant/{{$tenants->id}}/destroy" title='Delete Record' onclick="return confirm('Are you sure you want to Remove?');"><i class='fas fa-trash-alt'></i></a>
+                    <a href="tenant/{{$tenants->id}}/edit" title='Edit Record'><i class='fas fa-pencil-alt'></i></a>
+                    <a href="tenant/{{$tenants->id}}/destroy" title='Delete Record' onclick="return confirm('Are you sure you want to Remove?');"><i class='fas fa-trash-alt'></i></a>
                 </td>
            </tr>
        @endforeach

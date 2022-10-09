@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('year');
             $table->string('name');
             $table->string('flat_name');
-            $table->integer('rent')->unsigned();
-            $table->integer('electricity_bill')->nullable()->unsigned();
-            $table->integer('water_bill')->nullable()->unsigned();
-            $table->integer('gas_bill')->nullable()->unsigned();
-            $table->integer('trash_van')->nullable()->unsigned();
-            $table->integer('grand_total')->nullable()->unsigned();
+            $table->double('rent',8,2)->unsigned()->default(0);
+            $table->double('electricity_bill',8,2)->nullable()->unsigned();
+            $table->double('water_bill',8,2)->nullable()->unsigned();
+            $table->double('gas_bill',8,2)->nullable()->unsigned();
+            $table->double('trash_van',8,2)->nullable()->unsigned();
+            $table->double('grand_total')->nullable()->unsigned();
             $table->integer('flat_id')->unsigned();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
